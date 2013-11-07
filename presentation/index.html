@@ -43,8 +43,122 @@
 						<small>11/7/2013</small>
 					</p>
 				</section>
-			</div>
 
+				<section>
+					<h2>What is Ninject?</h2>
+					<p>
+						Ninject is an open source dependency injection framework for the .NET platform. It is powerful but also designed to be easy enough to use on <em>all</em> projects.
+					</p>
+				</section>
+
+				<section>
+					<h2>What is Inversion of Control?</h2>
+					<p>
+						Inversion of Control (IoC) is an object oriented programming technique where collaborating objects work through abstractions and the implementation of those
+						abstractions are not known at run-time.
+					</p>
+					<br>
+					<br>
+					<h3>IoC helps keep objects loosely coupled</h3>
+				</section>
+
+				<section>
+					<h2>Examples of IoC</h2>
+					<ul>
+						<li class="fragment"><b>Dependency Injection</b></li>
+						<li class="fragment">Service Locator</li>
+						<li class="fragment">Factory Pattern</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>What is Dependency Injection?</h2>
+					<p>
+						Dependency Injection is a form of Inversion of Control where an object receives required objects from an external source.
+					</p>
+				</section>
+
+				<section>
+					<h2>DI Example</h2>
+					<pre><code data-trim>
+public class TaskFinder
+{
+    private readonly ITaskService service;
+
+    public TaskFinder(ITaskService service)
+    {
+        this.service = service;
+    }
+ 
+    public IEnumerable&lt;WorkTask&gt; Find(string email, int minPriority)
+    {
+        return service.FindTasks(email)
+            .Where(x =&gt; x.Priority &gt;= minPriority);
+    }
+}
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>This looks like a lot of extra work...</h2>
+					<p>
+						It would be, but that is where a DI framework will help.
+					</p>
+				</section>
+
+				<section>
+					<h2>How?</h2>
+					<p>
+						Ninject ...
+					</p>
+					<ul>
+						<li class="fragment">Uses a fluent interface to bind types to what will implement them.</li>
+						<li class="fragment">Manages the creation of objects and their dependencies.</li>
+						<li class="fragment">Also manages the creation of dependencies and their dependencies (and so on).</li>
+						<li class="fragment">Handles the lifetime of objects.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Binding Examples</h2>
+					<ul>
+						<li class="fragment">
+							Simple Binding
+							<pre style="width:100%"><code data-trim>
+Bind&lt;ITaskService&gt;().To&lt;SimpleTaskService&gt;();
+							</code></pre>
+						</li>
+						<li class="fragment">
+							Binding with a constructor argument
+							<pre style="width:100%"><code data-trim>
+Bind&lt;ITaskService&gt;>().To&lt;ExchangeService&gt;()
+                .WithConstructorArgument("url",
+                new Uri("http://anotherserver.com"));
+							</code></pre>
+						</li>
+						<li class="fragment">
+							Binding with context
+							<pre style="width:100%"><code data-trim>
+Bind&lt;IRetryPolicy&gt;().To&lt;RandomRetryPolicy&gt;().WhenInjectedInto&lt;LoggingRetryPolicy&gt;();
+							</code></pre>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Kernel</h2>
+					<p>
+						The Kernel allows you to retrieve objects that are fully constructed from Ninject.
+					</p>
+				</section>
+
+				<section>
+					<h2>Kernel Example</h2>
+					<pre><code data-trim>
+var taskFinder = kernel.Get&lt;TaskFinder&gt;();
+					</code></pre>
+				</section>
+			</div>
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
