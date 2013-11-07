@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B40CDE0E-4326-4DF5-88C5-1CCFACE5AB40}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NinjectExample</RootNamespace>
+    <AssemblyName>NinjectExample</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ninject">
+      <HintPath>packages\Ninject.3.0.1.10\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ex1\ExchangeService.cs" />
+    <Compile Include="ex1\Runner.cs" />
+    <Compile Include="ex1\TaskFinder.cs" />
+    <Compile Include="ex2\ExchangeService.cs" />
+    <Compile Include="ex2\ITaskService.cs" />
+    <Compile Include="ex2\Runner.cs" />
+    <Compile Include="ex2\TaskFinder.cs" />
+    <Compile Include="ex3\Example3Module.cs" />
+    <Compile Include="ex3\ExchangeService.cs" />
+    <Compile Include="ex3\ITaskService.cs" />
+    <Compile Include="ex3\Runner.cs" />
+    <Compile Include="ex3\TaskFinder.cs" />
+    <Compile Include="ex4\Example4Module.cs" />
+    <Compile Include="ex4\ExchangeService.cs" />
+    <Compile Include="ex4\IRetryPolicy.cs" />
+    <Compile Include="ex4\ITaskService.cs" />
+    <Compile Include="ex4\RandomRetryPolicy.cs" />
+    <Compile Include="ex4\Runner.cs" />
+    <Compile Include="ex4\TaskFinder.cs" />
+    <Compile Include="ex5\Example5Module.cs" />
+    <Compile Include="ex5\ExchangeService.cs" />
+    <Compile Include="ex5\IRetryPolicy.cs" />
+    <Compile Include="ex5\ITaskService.cs" />
+    <Compile Include="ex5\LoggingRetryPolicy.cs" />
+    <Compile Include="ex5\LoggingTaskService.cs" />
+    <Compile Include="ex5\RandomRetryPolicy.cs" />
+    <Compile Include="ex5\Runner.cs" />
+    <Compile Include="ex5\TaskFinder.cs" />
+    <Compile Include="IRunner.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WorkTask.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
