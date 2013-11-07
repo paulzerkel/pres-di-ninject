@@ -1,8 +1,8 @@
 Dependency Injection with Ninject
 =================================
 
-This is a simple project to demonstrate some common scenarios of using 
-dependency injection with Ninject. It was created for a lunch presentation.
+This is a simple lunch presentation to demonstrate some common scenarios of using 
+dependency injection with Ninject.
 
 Exercise 1
 ----------
