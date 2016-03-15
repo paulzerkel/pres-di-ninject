@@ -1,6 +1,10 @@
 Dependency Injection with Ninject
 =================================
 
+NOTE
+----
+This presentation is probably out of date but may still be useful for basic examples.
+
 This is a simple lunch presentation to demonstrate some common scenarios of using 
 dependency injection with Ninject.
 
