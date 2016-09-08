@@ -7,7 +7,7 @@ This presentation is probably out of date but may still be useful for basic exam
 ## Overview
 The presentation is built with [Reveal.js](https://github.com/hakimel/reveal.js) and hosted on GitHub Pages: http://paulzerkel.github.io/pres-di-ninject/
 
-Edit the root `index.html` file to change the presentation. All of the files for Reveal.js are in `/reveal`. The gh-pages branch contains the live site.
+Edit the root `index.html` file to change the presentation. All of the files for Reveal.js are in `/reveal`. The master branch contains the live site.
 
 ## Examples
 There are a few basic examples located in `src`.
